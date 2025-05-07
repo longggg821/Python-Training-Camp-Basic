@@ -17,7 +17,11 @@ def find_emails(text):
     """
     # 实现你的代码: 使用正则表达式查找所有邮箱地址
     # 邮箱格式通常为: username@domain.com
-    pass
+    pat = r'([\w\.-]+)+@([\w\.-]+)+(\.[\w\.]+)+'
+    pat2=r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+"
+    match = re.findall(pat2,text)
+    print(match)
+    return match
 
 
 def is_valid_phone_number(phone):
@@ -36,7 +40,8 @@ def is_valid_phone_number(phone):
         bool: 如果是有效的手机号码则返回True，否则返回False
     """
     # 实现你的代码: 验证手机号码是否合法
-    pass
+    pattern = r'^1[3-9]\d{9}$'
+    return re.match(pattern, phone) is not None
 
 
 def extract_urls(text):
@@ -51,4 +56,7 @@ def extract_urls(text):
     """
     # 实现你的代码: 使用正则表达式提取所有URL
     # 需要考虑http://和https://开头的URL
-    pass 
+    url_pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    # 使用 findall() 查找所有匹配的 URL
+    urls = re.findall(url_pattern, text)
+    return urls

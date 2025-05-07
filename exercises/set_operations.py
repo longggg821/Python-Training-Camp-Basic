@@ -20,4 +20,30 @@ def student_set_operations(set1, set2, operation):
     - 集合操作的结果
     """
     # 请在下方编写代码
-    pass
+##    l=[]
+##    if operation=='union':
+##        l=set1
+##        for v in set2:
+##            l.add(v)
+##    elif operation=='intersection':
+##        for v in set1:
+##            if v in set2:
+##                l.append(v)
+##    else:
+##        for v in set1:
+##            if v not in set2:
+##                l.append(v)
+##    print(l)
+##    return l
+    if operation=='union':
+        return set1 | set2
+    elif operation=='intersection':
+        return set1 & set2
+    else:
+        return set1 - set2
+if __name__=='__main__':
+    math_club = {"张三", "李四", "王五"}
+    coding_club = {"李四", "王五", "赵六"}
+    result = student_set_operations(math_club, coding_club, "intersection")
+    print(result)
+
